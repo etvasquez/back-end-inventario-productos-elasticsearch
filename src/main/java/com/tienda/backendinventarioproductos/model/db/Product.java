@@ -19,7 +19,7 @@ public class Product {
 	private Integer id;
 	
 	@Field(type = FieldType.Search_As_You_Type, name = "nombre")
-	private String name;
+	private String nombre;
 	
 	@Field(type = FieldType.Search_As_You_Type, name = "caracteristicas")
 	private String caracteristicas;

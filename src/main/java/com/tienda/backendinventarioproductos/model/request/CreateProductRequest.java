@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CreateProductRequest {
 
-	private String name;
+	private String nombre;
 	private String country;
 	private String description;
 	private Boolean visible;

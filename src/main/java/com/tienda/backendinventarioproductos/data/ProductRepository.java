@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ProductRepository extends ElasticsearchRepository<Product, String> {
 
-	List<Product> findByName(String name);
+	List<Product> findByNombre(String nombre);
 	
 	Optional<Product> findById(String id);
 	
