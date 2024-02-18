@@ -16,7 +16,7 @@ spring:
 server:
   port: 8090
   fullAddress: ${HOST:http://localhost}:${PORT:${server.port}}
-  gatewayAddres: ${HOST_GATEWAY:http://localhost}:${PORT_GATEWAY}:8762/ms-productos-busqueda
+  gatewayAddres: ${HOST_GATEWAY:http://localhost}:${PORT_GATEWAY:8762}/ms-productos-busqueda
 
 
 ## Configuracion del cliente de Eureka
