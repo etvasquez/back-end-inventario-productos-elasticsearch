@@ -31,8 +31,8 @@ import java.util.Optional;
 @Slf4j
 public class DataAccessRepository {
 
-    @Value("${server.fullAddress}")
-    private String serverFullAddress;
+    @Value("${server.gatewayAddres}")
+    private String gatewayAddres;
 
     // Esta clase (y bean) es la unica que usan directamente los servicios para
     // acceder a los datos.
@@ -109,7 +109,7 @@ public class DataAccessRepository {
                                     new AggregationDetails(
                                             bucket.getKey().toString(),
                                             (int) bucket.getDocCount(),
-                                            serverFullAddress + "/products?categoria=" + bucket.getKey() + queryParams)));
+                                            gatewayAddres + "/products?categoria=" + bucket.getKey() + queryParams)));
         }
         return new ProductsQueryResponse(result.getSearchHits().stream().map(SearchHit::getContent).toList(), responseAggs);
     }
