@@ -40,6 +40,7 @@ public class DataAccessRepository {
     private final ElasticsearchOperations elasticClient;
 
     private final String[] descriptionSearchFields = {"caracteristicas", "caracteristicas._2gram", "caracteristicas._3gram"};
+    private final String[] nombreSearchFields = {"nombre", "nombre._2gram", "nombre._3gram"};
 
     public Product save(Product product) {
         return productRepository.save(product);
@@ -64,7 +65,9 @@ public class DataAccessRepository {
         }
 
         if (!StringUtils.isEmpty(nombre)) {
-            querySpec.must(QueryBuilders.matchQuery("nombre", nombre));
+            querySpec.must(QueryBuilders.multiMatchQuery(nombre, nombreSearchFields).type(Type.BOOL_PREFIX));
+
+            //querySpec.must(QueryBuilders.matchQuery("nombre", nombre));
         }
 
         if (!StringUtils.isEmpty(caracteristicas)) {
