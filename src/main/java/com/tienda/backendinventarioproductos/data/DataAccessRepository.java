@@ -65,9 +65,8 @@ public class DataAccessRepository {
         }
 
         if (!StringUtils.isEmpty(nombre)) {
-            querySpec.should(QueryBuilders.multiMatchQuery(nombre, nombreSearchFields).type(Type.BOOL_PREFIX));
-
-            //querySpec.must(QueryBuilders.matchQuery("nombre", nombre));
+            // querySpec.should(QueryBuilders.multiMatchQuery(nombre, nombreSearchFields).type(Type.BOOL_PREFIX));
+            querySpec.should(QueryBuilders.matchQuery("nombre", nombre));
         }
 
         if (!StringUtils.isEmpty(caracteristicas)) {
